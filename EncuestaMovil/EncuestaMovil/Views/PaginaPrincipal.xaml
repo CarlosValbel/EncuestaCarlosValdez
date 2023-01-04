@@ -3,37 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
              x:Class="EncuestaMovil.Views.PaginaPrincipal" Background="#CA965C" >
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            
-            <xamanimation:StoryBoard x:Key="FloatButton"
-             Target="{x:Reference Siguiente}">
-                <xamanimation:TranslateToAnimation Duration="200" TranslateY="600"></xamanimation:TranslateToAnimation>
-                <xamanimation:TranslateToAnimation  TranslateY="0" Easing="SpringOut"></xamanimation:TranslateToAnimation>
-            </xamanimation:StoryBoard>
-        </ResourceDictionary> 
-    </ContentPage.Resources>
-    <ContentPage.Triggers>
-        <EventTrigger Event="Appearing">
-            <xamanimation:BeginAnimation Animation="{StaticResource FloatButton}" ></xamanimation:BeginAnimation>
-        </EventTrigger>
-    </ContentPage.Triggers>
 
-<ContentPage.Content>
+    <ContentPage.Content>
         <StackLayout Margin="10" Background="#F4DFBA">
             <StackLayout>
-            <Grid>
-                <Label Grid.Row="0" Text="Danos tu opinion de que tan satisfech@ estas!!
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="5*"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.ColumnSpan="5" Text="Danos tu opinion de que tan satisfech@ estas!!
                    " FontSize="25" TextColor="#876445" HorizontalTextAlignment="Center"
                    FontAttributes="Bold" Margin="5" TextType="Html"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-                    <Button x:Name="Siguiente" Margin="10" Grid.Row="1" BackgroundColor="#CA965C"
-                            VerticalOptions="End" HorizontalOptions="Center"
-                            HeightRequest="80" WidthRequest="250" CornerRadius="30"
-                            BorderColor="#876445" BorderWidth="4" Text="Siguiente" TextColor="#876445"
-                            Font="25" FontAttributes="Bold"></Button>
-                <Image HorizontalOptions="End" Grid.Row="3" Source="main" VerticalOptions="End" Margin="10,10,10,10"></Image>
+
+                    <ImageButton Grid.Row="1" Grid.Column="0" Source="MuyMal" Margin="1" BackgroundColor="Transparent" HeightRequest="50"></ImageButton>
+                    <ImageButton Grid.Row="1" Grid.Column="1" Source="Mal" Margin="1" BackgroundColor="Transparent" HeightRequest="50"></ImageButton>
+                    <ImageButton Grid.Row="1" Grid.Column="2" Source="Regular" Margin="1" BackgroundColor="Transparent" HeightRequest="50"></ImageButton>
+                    <ImageButton Grid.Row="1" Grid.Column="3" Source="Buena" Margin="1" BackgroundColor="Transparent" HeightRequest="50"></ImageButton>
+                    <ImageButton Grid.Row="1" Grid.Column="4" Source="Excelente" Margin="1" BackgroundColor="Transparent" HeightRequest="50"></ImageButton>
+
+                    <Label Grid.Row="2" Grid.ColumnSpan="5" Text="Gracias por tu respuesta!!
+                   " FontSize="20" TextColor="#876445" HorizontalTextAlignment="Center"
+                   FontAttributes="Bold" Margin="5" TextType="Html"
+                VerticalOptions="EndAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
             </Grid>
             </StackLayout>
         </StackLayout>
